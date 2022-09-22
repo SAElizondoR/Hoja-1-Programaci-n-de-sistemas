@@ -1,2 +1,2 @@
-# Hoja-1-Programaci-n-de-sistemas
+# Hoja-1-Programación-de-sistemas
 Ejercicios para la clase de programación de sistemas
