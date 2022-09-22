@@ -1,5 +1,5 @@
-// Pour compiler: gcc ecrire_redirection.c -o ecrire_redirection
-// Pour executer: ./ecrire_redirection
+// Pour compiler: gcc hello_world_redirection.c -o hello_world_redirection
+// Pour executer: ./hello_world_redirection
 
 #include <stdio.h>
 #include <unistd.h>

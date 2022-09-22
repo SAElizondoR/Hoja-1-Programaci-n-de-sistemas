@@ -1,5 +1,5 @@
-// Pour compiler: gcc ecrire.c -o ecrire
-// Pour executer: ./ecrire
+// Pour compiler: gcc hello_world.c -o hello_world
+// Pour executer: ./hello_world
 
 #include <stdio.h>
 #include <unistd.h>
