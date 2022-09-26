@@ -24,11 +24,12 @@ void verifier(int cond, char *s){
 int main(int argc, char *argv[]){
 
   char c;
-  int fd, idx_fd, nwrite, nread, count = -1;
-  int l = strlen(argv[1]);
-  char idx_filename[l + strlen(SUFFIXE) + 1];
+  int fd, idx_fd, nwrite, nread, count = 0;
 
   verifier(argc == 2, "il faut un paramètre.");
+
+  int l = strlen(argv[1]);
+  char idx_filename[l + strlen(SUFFIXE) + 1];
 
   // construire le chemin au fichier index
   strncpy(idx_filename, argv[1], l);
@@ -40,20 +41,16 @@ int main(int argc, char *argv[]){
   idx_fd = open(idx_filename, O_WRONLY | O_CREAT | O_TRUNC, 0640);
   verifier(idx_fd != -1, "Error opening index file");
 
-  // index the first line
-  nwrite = write(idx_fd, &count, sizeof(int));
-  verifier(nwrite != -1, "Error writing to index file");
-  nread = read(fd, &c, 1);
-  count++;
 
   // index all line breaks
+  nread = read(fd, &c, 1);
   while (nread == 1) {
     if (c == '\n') {
       nwrite = write(idx_fd, &count, sizeof(int));
       verifier(nwrite != -1, "Error writing to index file");
     }
-    nread = read(fd, &c, 1);
     count++;
+    nread = read(fd, &c, 1);
   }
   verifier(nread != -1, "Error reading from input file");
 
